@@ -54,6 +54,18 @@ select sum(totaulas) from cursos;   /* Soma todos os numeros */
 
 select avg(totaulas) from cursos;   /* Tira a media */
 
+/* Agrupar registros */
+
+select totaulas, count(nome) from cursos
+group by totaulas
+having count(totaulas) > 1;      /* Use having para agrupar especifico */
+/* OU */
+select carga, count(*) from cursos
+where ano > 2015
+group by carga
+having carga > (select avg(carga) from cursos);
+
+
 
 
 
